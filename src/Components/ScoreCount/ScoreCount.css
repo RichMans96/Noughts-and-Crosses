@@ -1,3 +1,7 @@
 .score-container {
   margin-bottom: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 62vh;
 }

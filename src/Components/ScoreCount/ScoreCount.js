@@ -4,7 +4,12 @@ import './ScoreCount.css';
 const ScoreCount = () => {
   return (
     <div className='score-container'>
-      <h1>score goes here</h1>
+      <div className='player-one'>
+        <h1>Player 1: 0</h1>
+      </div>
+      <div className='player-two'>
+        <h1>Player 2: 0</h1>
+      </div>
     </div>
   );
 };
