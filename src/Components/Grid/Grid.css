@@ -1,0 +1,34 @@
+.board-container {
+  background-color: #0254d9;
+  margin: 0 auto;
+  padding: 0;
+  width: 62vh;
+  height: 62vh;
+  border-radius: 12.5px;
+  -moz-border-radius: 12.5px;
+}
+
+.board-row {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-around;
+}
+
+.board-cell {
+  background-color: #006cd1;
+  margin: 7.5px;
+  flex: 1 0 auto;
+  border-radius: 10px;
+}
+
+.board-cell:before {
+  content: '';
+  float: left;
+  padding-top: 100%;
+}
+
+.board-cell:hover {
+  background-color: #2d9aff;
+  cursor: pointer;
+  transition: ease-in-out 0.25s;
+}
