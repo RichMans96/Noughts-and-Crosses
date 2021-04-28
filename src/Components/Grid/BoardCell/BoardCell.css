@@ -1,0 +1,6 @@
+.board-cell {
+  background-color: #006cd1;
+  margin: 7.5px;
+  flex: 1 0 auto;
+  border-radius: 10px;
+}

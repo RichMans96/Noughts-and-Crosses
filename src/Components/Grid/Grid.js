@@ -1,23 +1,24 @@
 import React from 'react';
+import BoardCell from './BoardCell/BoardCell';
 import './Grid.css';
 
 const Grid = () => {
   return (
     <div className='board-container'>
       <div className='board-row'>
-        <div className='board-cell'></div>
-        <div className='board-cell'></div>
-        <div className='board-cell'></div>
+        <BoardCell />
+        <BoardCell />
+        <BoardCell />
       </div>
       <div className='board-row'>
-        <div className='board-cell'></div>
-        <div className='board-cell'></div>
-        <div className='board-cell'></div>
+        <BoardCell />
+        <BoardCell />
+        <BoardCell />
       </div>
       <div className='board-row'>
-        <div className='board-cell'></div>
-        <div className='board-cell'></div>
-        <div className='board-cell'></div>
+        <BoardCell />
+        <BoardCell />
+        <BoardCell />
       </div>
     </div>
   );
