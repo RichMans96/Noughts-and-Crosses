@@ -1,8 +1,8 @@
 import React from 'react';
 import './BoardCell.css';
 
-const BoardCell = () => {
-  return <div className='board-cell' onClick={() => console.log('click')}></div>;
+const BoardCell = ({ fillCell }) => {
+  return <div className='board-cell' onClick={fillCell}></div>;
 };
 
 export default BoardCell;
