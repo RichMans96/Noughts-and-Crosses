@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import './App.css';
 import Grid from './Components/Grid/Grid';
+import ResetButton from './Components/Misc/ResetButton';
 import ScoreCount from './Components/ScoreCount/ScoreCount';
 
 function App() {
   const [playerTurn, setPlayerTurn] = useState({ player1: true, player2: false });
   const [playerScore, setPlayerScore] = useState({ player1: 0, player2: 0 });
+  const [gameStatus, setGameStatus] = useState(false);
   const [gameBoard, setGameBoard] = useState([
     [-1, -1, -1],
     [-1, -1, -1],
@@ -22,6 +24,7 @@ function App() {
       [-1, -1, -1],
       [-1, -1, -1],
     ]);
+    setGameStatus(false);
   }
 
   function gameWon() {
@@ -46,17 +49,39 @@ function App() {
       (gameBoard[0][2] === 0 && gameBoard[1][1] === 0 && gameBoard[2][0] === 0);
 
     if (noughtsWin) {
-      setPlayerScore((prevPlayerScore) => {
-        return { ...prevPlayerScore, player1: prevPlayerScore.player1 + 1 };
+      const boardCells = document.querySelectorAll('.board-cell');
+
+      if (gameStatus === false) {
+        setPlayerScore((prevPlayerScore) => {
+          return { ...prevPlayerScore, player1: prevPlayerScore.player1 + 1 };
+        });
+      }
+
+      setGameStatus(true);
+
+      boardCells.forEach((cell) => {
+        if (cell.innerHTML === '') {
+          cell.innerHTML = ' ';
+        }
       });
-      clearBoard();
     }
 
     if (crossesWin) {
-      setPlayerScore((prevPlayerScore) => {
-        return { ...prevPlayerScore, player2: prevPlayerScore.player2 + 1 };
+      const boardCells = document.querySelectorAll('.board-cell');
+
+      if (gameStatus === false) {
+        setPlayerScore((prevPlayerScore) => {
+          return { ...prevPlayerScore, player2: prevPlayerScore.player2 + 1 };
+        });
+      }
+
+      setGameStatus(true);
+
+      boardCells.forEach((cell) => {
+        if (cell.innerHTML === '') {
+          cell.innerHTML = ' ';
+        }
       });
-      clearBoard();
     }
   }
 
@@ -112,7 +137,7 @@ function App() {
         default:
           break;
       }
-      e.target.innerHTML = 'X';
+      e.target.innerHTML = 'O';
       setPlayerTurn({ player1: false, player2: true });
     }
     if (playerTurn.player2 === true && !e.target.innerHTML) {
@@ -165,7 +190,7 @@ function App() {
         default:
           break;
       }
-      e.target.innerHTML = 'O';
+      e.target.innerHTML = 'X';
       setPlayerTurn({ player1: true, player2: false });
     }
   }
@@ -175,6 +200,7 @@ function App() {
       <h1>Noughts and Crosses</h1>
       <ScoreCount playerScore={playerScore} />
       <Grid fillCell={fillCell} />
+      <ResetButton reset={clearBoard} status={gameStatus} />
     </div>
   );
 }
