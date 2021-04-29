@@ -1,4 +1,7 @@
 .board-cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #006cd1;
   margin: 7.5px;
   flex: 1 0 auto;

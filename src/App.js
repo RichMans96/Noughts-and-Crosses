@@ -198,7 +198,7 @@ function App() {
   return (
     <div className='App'>
       <h1>Noughts and Crosses</h1>
-      <ScoreCount playerScore={playerScore} />
+      <ScoreCount playerScore={playerScore} playerTurn={playerTurn} />
       <Grid fillCell={fillCell} />
       <ResetButton reset={clearBoard} status={gameStatus} />
     </div>

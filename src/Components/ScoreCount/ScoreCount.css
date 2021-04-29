@@ -5,3 +5,7 @@
   align-items: center;
   width: 62vh;
 }
+
+.active {
+  border-bottom: 1px solid white;
+}

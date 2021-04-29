@@ -3,9 +3,11 @@ import './ResetButton.css';
 
 const ResetButton = ({ reset, status }) => {
   return (
-    <button onClick={reset} className={status ? 'active' : 'hidden'}>
-      Play again?
-    </button>
+    <div className='btn-container'>
+      <button onClick={reset} className='btn-reset'>
+        {status ? 'Play Again?' : 'Reset'}
+      </button>
+    </div>
   );
 };
 
